@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stock Market Predictor</title>
+</head>
+<body>
+
+<center>
+
+<p id="displayText"></p>
+
+</center>
+
+<script>
+
+// I'm going to predict the Dow Jones Index prices
+// based on the change in its past monthly prices.
+// May 2019 Open - 26,639.06
+// Apr 2019 Open - 26,075.10
+// Mar 2019 Open - 26,019.67
+// Feb 2019 Open - 25,025.31
+// Jan 2019 Open - 23,058.61
+// Dec 2018 Open - 25,779.57
+// Nov 2018 Open - 25,142.08
+// Oct 2018 Open - 26,598.36
+// Sep 2018 Open - 25,916.07
+// Aug 2018 Open - 25,461.63
+// Jul 2018 Open - 24,161.53
+// Jun 2018 Open - 24,542.09
+// May 2018 Open - 24,117.29
+//
+// Source: https://finance.yahoo.com/quote/%5EDJI/
+//
+// Price Changes:
+// Jun - May = 424.8
+// Jul - Jun = -380.56
+// Aug - Jul = 1300.1
+// Sep - Aug = 454.44
+// Oct - Sep = 682.29
+// Nov - Oct = -1456.28
+// Dec - Nov = 637.49
+// Jan - Dec = -2720.96
+// Feb - Jan = 1966.7
+// Mar - Feb = 994.36
+// Apr - Mar = 55.43
+// May - Apr = 563.96
+// Assuming the price changes are yearly cyclical, 
+// we can predict the future Dow Jones prices.
+
+var base = 26639.06;
+
+// Monthly price changes
+var jan = -2720.96;
+var feb = 1966.7;
+var mar = 994.36;
+var apr = 55.43;
+var may = 563.96;
+var jun = 424.8;
+var jul = -380.56;
+var aug = 1300.1;
+var sep = 454.44;
+var oct = 682.29;
+var nov = -1456.28;
+var dec = 637.49;
+
+// Monthly price changes to base amount
+var amt00 = Math.round(base + jun);
+var amt01 = Math.round(amt00 + jul);
+var amt02 = Math.round(amt01 + aug);
+var amt03 = Math.round(amt02 + sep);
+var amt04 = Math.round(amt03 + oct);
+var amt05 = Math.round(amt04 + nov);
+var amt06 = Math.round(amt05 + dec);
+var amt07 = Math.round(amt06 + jan);
+var amt08 = Math.round(amt07 + feb);
+var amt09 = Math.round(amt08 + mar);
+var amt10 = Math.round(amt09 + apr);
+var amt11 = Math.round(amt10 + may);
+
+str00 = "Jun 2019: " + amt00 + "<br>";
+str00 += "Jul 2019: " + amt01 + "<br>";
+str00 += "Aug 2019: " + amt02 + "<br>";
+str00 += "Sep 2019: " + amt03 + "<br>";
+str00 += "Oct 2019: " + amt04 + "<br>";
+str00 += "Nov 2019: " + amt05 + "<br>";
+str00 += "Dec 2019: " + amt06 + "<br>";
+str00 += "Jan 2020: " + amt07 + "<br>";
+str00 += "Feb 2020: " + amt08 + "<br>";
+str00 += "Mar 2020: " + amt09 + "<br>";
+str00 += "Apr 2020: " + amt10 + "<br>";
+str00 += "May 2020: " + amt11 + "<br>";
+
+document.getElementById("displayText").innerHTML = str00;
+
+</script>
+
+</body>
+</html>
